@@ -1,6 +1,6 @@
-# Тестовое задание на позицию frontend разработчика
+## Тестовое задание на позицию frontend разработчика
 
-# Books Searching Service via API Google Books
+## Books Searching Service via API Google Books
 
 ## Stack:
 - TypeScript
@@ -12,5 +12,6 @@
 ## Docker scripts
 ```sh
 docker build
+
 docker-compose up
 ```
