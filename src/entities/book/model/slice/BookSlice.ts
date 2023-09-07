@@ -1,21 +1,22 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
-import { CategoryType, SortType, initialBookState } from './initialState'
-import { Book } from '../types/Book'
-import { RootState } from '@/app/providers/redux/config/store'
+import { initialBookState } from './bookSlice.config'
+import { AppState } from '@/app/providers/redux'
 import { reciveAllBooks } from '../thunk/BookThunk'
+import { CategoryType, SortType } from './bookSlice.types'
+import { SearchParams } from '../../api/types'
 
 /*
 	Main logic of book slice
 
 	Reducers:
-	1. Searching
+	1. Searching by Search Query
 	2. Selecting Category
-	3. Sorting
-	4. Reset Filters
+	3. Selecting Sort
+	4. Save Previous Search Params
+	5. Reset Filters
 
 	Builder:
 	1. Recive data by search query
-	2. Recive current detailed book page data
 */
 
 export const BookSlice = createSlice({
@@ -28,13 +29,19 @@ export const BookSlice = createSlice({
     setSelectedCategory: (state, action: PayloadAction<CategoryType>) => {
       state.selectedCategory = action.payload
     },
-    setSortBy: (state, action: PayloadAction<SortType>) => {
-      state.sortBy = action.payload
+    setSelectedSort: (state, action: PayloadAction<SortType>) => {
+      state.selectedSort = action.payload
+    },
+    setPrevSearchParams: (state, action: PayloadAction<SearchParams>) => {
+      state.prevSearchParams = action.payload
+    },
+    resetRecivedData: (state) => {
+      state.books = []
     },
     resetFilters: (state) => {
       state.searchQuery = ''
       state.selectedCategory = 'all'
-      state.sortBy = 'relevance'
+      state.selectedSort = 'relevance'
     },
   },
   extraReducers: (builder) => {
@@ -44,8 +51,8 @@ export const BookSlice = createSlice({
       })
       .addCase(reciveAllBooks.fulfilled, (state, action) => {
         state.status = 'fulfilled'
-        state.books = action.payload.books
-        state.searchCount = action.payload.searchCount
+        state.books.push(...action.payload.items)
+        state.searchCount = action.payload.totalItems
       })
       .addCase(reciveAllBooks.rejected, (state, action) => {
         state.status = 'rejected'
@@ -58,13 +65,17 @@ export const BookSlice = createSlice({
 	Selectors
 */
 
-export const selectAllBooks = (state: RootState) => state['@books'].books
-export const selectSearchQuery = (state: RootState) => state['@books'].searchQuery
-export const selectSelectedCategory = (state: RootState) => state['@books'].selectedCategory
-export const selectSortBy = (state: RootState) => state['@books'].sortBy
+export const selectState = (state: AppState) => state['@books']
+export const selectAllBooks = (state: AppState) => state['@books'].books
+export const selectSearchQuery = (state: AppState) => state['@books'].searchQuery
+export const selectSelectedCategory = (state: AppState) => state['@books'].selectedCategory
+export const selectSortBy = (state: AppState) => state['@books'].selectedSort
 
-/*
-	Actions
-*/
-
-export const { setSearchQuery, setSelectedCategory, setSortBy, resetFilters } = BookSlice.actions
+export const {
+  setSearchQuery,
+  setSelectedCategory,
+  setSelectedSort,
+  setPrevSearchParams,
+  resetRecivedData,
+  resetFilters,
+} = BookSlice.actions

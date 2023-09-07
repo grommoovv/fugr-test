@@ -1,32 +1,37 @@
 import { $axios } from '@/shared/api/axios'
-import { ApiResponse } from '../types'
+import { __API_KEY__ } from '@/shared/api/keys'
+import { ApiResponse, SearchParams } from '../types'
+
+export const maxBookResultPerLoad = 30
+
+/**
+ * Build Query String Function
+ * Logic of build query string
+ */
+
+const buildQueryString = ({ query, subject, sort, startIndex }: SearchParams) => {
+  let buildedQueryString = `q=${query}`
+
+  if (subject && subject !== 'all') {
+    buildedQueryString += `+subject:${subject}`
+  }
+  if (sort) {
+    buildedQueryString += `&orderBy=${sort}`
+  }
+
+  buildedQueryString += `&startIndex=${startIndex}&maxResults=${maxBookResultPerLoad}`
+
+  return buildedQueryString
+}
 
 /**
  * Book Service
  * Logic of api requests
- *
- *
- *
  */
 
 export class BookService {
-  static async reciveAllBooks(
-    query: string,
-    step: number = 0,
-    subject: string = 'art',
-    sort: string = 'relevance'
-  ) {
-    const response = await $axios<ApiResponse>(`volumes`, {
-      params: {
-        q: query,
-        startIndex: step,
-        maxResults: 30,
-        subject: subject,
-        orderBy: sort,
-      },
-    })
-
-    return response.data
+  static async reciveAllBooks(searchParams: SearchParams) {
+    return (await $axios<ApiResponse>(`volumes?${buildQueryString(searchParams)}`)).data
   }
 
   static async reciveOneBook() {}
