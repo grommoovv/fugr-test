@@ -1,14 +1,12 @@
 import { FC } from 'react'
-import cls from './Card.module.scss'
-import { volumeInfo } from '@/entities/book/model/types/Book'
+import cls from './BookCard.module.scss'
+import { volumeInfo } from '../../model/types/Book'
 
-interface CardProps {
+interface BookCardProps {
   details: volumeInfo
 }
 
-export const Card: FC<CardProps> = ({ details }) => {
-  // console.log('card:', details)
-
+export const BookCard: FC<BookCardProps> = ({ details }) => {
   const imageURL = details?.imageLinks?.thumbnail
   const title = details?.title
   const publishedDate = details?.publishedDate
