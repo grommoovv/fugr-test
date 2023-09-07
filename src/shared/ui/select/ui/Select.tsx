@@ -1,27 +1,28 @@
-import { FC, SelectHTMLAttributes } from 'react'
+import { ChangeEvent, FC, SelectHTMLAttributes, useState } from 'react'
 import cls from './Select.module.scss'
 import { SelectFields } from './types'
+import { SortType } from '@/entities/book/model/slice/bookSlice.types'
 
 interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
-  defaultValue: string
-  selectFields: SelectFields[]
-  selectValue?: string
-  handleChangeValue?: (selectValue: string) => void
+  fields: SelectFields[]
+  handleSelectSort: (selectValue: any) => void
 }
 
 export const Select: FC<SelectProps> = (props) => {
-  const { defaultValue, selectFields, selectValue, handleChangeValue } = props
+  const { fields, handleSelectSort } = props
+
+  const [selectValue, setSelectValue] = useState('')
+
+  const localSelectOption = (e: ChangeEvent<HTMLSelectElement>) => {
+    const currentValue = e.target.value
+    setSelectValue(currentValue)
+    handleSelectSort(currentValue)
+  }
 
   return (
     <>
-      <select
-        className={cls.select}
-        value={selectValue}
-        // onChange={(e) => handleChangeValue(e.target.value)}
-      >
-        <option className={cls.option}>{defaultValue}</option>
-
-        {selectFields.map((field) => (
+      <select className={cls.select} value={selectValue} onChange={localSelectOption}>
+        {fields.map((field) => (
           <option className={cls.option} value={field.value} key={field.value}>
             {field.text}
           </option>
