@@ -1,6 +1,7 @@
 import { FC } from 'react'
-import { Showcase } from '@/widgets/showcase/ui/Showcase'
-import { SearchResultMessage } from '@/widgets/SearchResultMessage/ui/SearchResultMessage'
+import { SearchCountMessage } from '@/widgets/SearchCountMessage'
+import { BookList } from '@/entities/book'
+import { LoadMore } from '@/features/LoadMore'
 
 interface HomePageProps {}
 
@@ -8,8 +9,9 @@ const HomePage: FC = (props) => {
   return (
     <>
       <div className={''}>
-				<SearchResultMessage />
-        <Showcase />
+        <SearchCountMessage />
+        <BookList />
+				<LoadMore />
       </div>
     </>
   )
