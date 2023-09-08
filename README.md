@@ -2,7 +2,11 @@
 
 ## Books Searching Service via API Google Books
 
+## Demo Preview
+
+
 ## Stack:
+
 - TypeScript
 - React
 - Redux (Toolkit, Thunk)
@@ -10,8 +14,8 @@
 - Docker
 
 ## Docker scripts
-```sh
-docker build
 
-docker-compose up
+```sh
+docker build -t fugr-test  .
+docker run -p 8080:80 fugr-test
 ```
