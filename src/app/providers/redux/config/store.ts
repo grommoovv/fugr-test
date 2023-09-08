@@ -1,7 +1,6 @@
 // import { BookSlice } from '@/entities/book/model/slice/bookSlice'
 import { configureStore } from '@reduxjs/toolkit'
 import { combineReducers } from '@reduxjs/toolkit'
-import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 import { BookSlice } from '../../../../entities/book'
 
 const rootReducer = combineReducers({
@@ -14,6 +13,3 @@ export const store = configureStore({
 
 export type AppState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch
-
-export const useAppDispatch = () => useDispatch<AppDispatch>()
-export const useAppSelector: TypedUseSelectorHook<AppState> = useSelector

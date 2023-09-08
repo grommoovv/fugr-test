@@ -7,9 +7,7 @@ import { SearchParams } from '../../../entities/book/api/types'
 import { setPrevSearchParams } from '../../../entities/book/model/slice/bookSlice'
 import { Button } from '../../../shared/ui/button'
 
-interface LoadMoreProps {}
-
-export const LoadMore: FC = (props) => {
+export const LoadMore: FC = () => {
   const {
     searchCount,
     books: { length },
