@@ -23,7 +23,7 @@ export const BookList: FC = (props) => {
       <ul className={cls.list}>
         {books.map((book) => (
           <li className={cls.item} key={book.id}>
-            <BookCard details={book.volumeInfo} />
+            <BookCard book={book.volumeInfo} bookId={book.id} />
           </li>
         ))}
       </ul>
