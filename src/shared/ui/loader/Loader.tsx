@@ -5,8 +5,10 @@ interface LoaderProps {}
 
 export const Loader: FC = (props) => {
   return (
-    <>
-      <div className={cls.loader}>Loading...</div>
-    </>
+    <div className={cls.loader}>
+      <div className={cls.wrap}>
+        <div className={cls.animation}></div>
+      </div>
+    </div>
   )
 }
