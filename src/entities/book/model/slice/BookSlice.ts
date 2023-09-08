@@ -20,7 +20,7 @@ import { AppState } from '../../../../app/providers/redux'
 */
 
 export const BookSlice = createSlice({
-  name: '@books',
+  name: 'BOOKS',
   initialState: initialBookState,
   reducers: {
     setSearchQuery: (state, action: PayloadAction<string>) => {
@@ -65,11 +65,11 @@ export const BookSlice = createSlice({
 	Selectors
 */
 
-export const selectState = (state: AppState) => state['@books']
-export const selectAllBooks = (state: AppState) => state['@books'].books
-export const selectSearchQuery = (state: AppState) => state['@books'].searchQuery
-export const selectSelectedCategory = (state: AppState) => state['@books'].selectedCategory
-export const selectSortBy = (state: AppState) => state['@books'].selectedSort
+export const selectState = (state: AppState) => state.BOOKS
+export const selectAllBooks = (state: AppState) => state.BOOKS.books
+export const selectSearchQuery = (state: AppState) => state.BOOKS.searchQuery
+export const selectSelectedCategory = (state: AppState) => state.BOOKS.selectedCategory
+export const selectSortBy = (state: AppState) => state.BOOKS.selectedSort
 
 export const {
   setSearchQuery,
