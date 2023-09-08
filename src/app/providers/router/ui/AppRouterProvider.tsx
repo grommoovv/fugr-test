@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom'
 import { RootLayout } from '@/shared/layout'
 import { HomePage } from '@/pages/HomePage'
 import { DetailedBookPage } from '@/pages/DetailedBookPage'
+import { NotFoundPage } from '@/pages/NotFoundPage'
 
 export const AppRouterProvider = createBrowserRouter([
   {
@@ -17,5 +18,9 @@ export const AppRouterProvider = createBrowserRouter([
         element: <DetailedBookPage />,
       },
     ],
+  },
+  {
+    path: '*',
+    element: <NotFoundPage />,
   },
 ])
