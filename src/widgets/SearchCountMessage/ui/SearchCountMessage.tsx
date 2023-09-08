@@ -1,7 +1,7 @@
 import { FC, useState } from 'react'
 import cls from './SearchCountMessage.module.scss'
-import { useAppSelector } from '@/app/providers/redux'
-import { selectState } from '@/entities/book/model/slice/bookSlice'
+import { useAppSelector } from '../../../app/providers/redux'
+import { selectState } from '../../../entities/book/model/slice/bookSlice'
 
 interface SearchCountMessageProps {}
 

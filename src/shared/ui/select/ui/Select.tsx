@@ -1,7 +1,6 @@
 import { ChangeEvent, FC, SelectHTMLAttributes, useState } from 'react'
-import cls from './Select.module.scss'
 import { SelectFields } from './types'
-import { SortType } from '@/entities/book/model/slice/bookSlice.types'
+import cls from './Select.module.scss'
 
 interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   fields: SelectFields[]

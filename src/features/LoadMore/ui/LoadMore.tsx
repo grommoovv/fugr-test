@@ -1,11 +1,11 @@
 import { FC } from 'react'
 import cls from './LoadMore.module.scss'
-import { Button } from '@/shared/ui/button'
-import { useAppDispatch, useAppSelector } from '@/app/providers/redux'
-import { selectState, setPrevSearchParams } from '@/entities/book/model/slice/bookSlice'
-import { reciveAllBooks } from '@/entities/book'
-import { SearchParams } from '@/entities/book/api/types'
-import { maxBookResultPerLoad } from '@/entities/book/api/service/BookService'
+import { useAppSelector, useAppDispatch } from '../../../app/providers/redux'
+import { reciveAllBooks } from '../../../entities/book'
+import { maxBookResultPerLoad } from '../../../entities/book/api/service/BookService'
+import { SearchParams } from '../../../entities/book/api/types'
+import { selectState, setPrevSearchParams } from '../../../entities/book/model/slice/bookSlice'
+import { Button } from '../../../shared/ui/button'
 
 interface LoadMoreProps {}
 

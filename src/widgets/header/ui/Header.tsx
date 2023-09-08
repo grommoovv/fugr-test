@@ -1,7 +1,7 @@
 import { FC } from 'react'
-import { SearchForm } from '@/widgets/SearchForm'
 import { useLocation } from 'react-router'
 import cls from './Header.module.scss'
+import { SearchForm } from '../../SearchForm'
 
 interface HeaderProps {}
 

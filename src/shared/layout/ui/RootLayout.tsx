@@ -1,8 +1,9 @@
 import { FC, Suspense } from 'react'
 import { Outlet } from 'react-router'
-import { Header } from '@/widgets/Header'
+
 import cls from './RootLayout.module.scss'
-import { Loader } from '@/shared/ui/loader'
+import { Header } from '../../../widgets/Header'
+import { Loader } from '../../ui/loader'
 
 interface RootLayoutProps {}
 

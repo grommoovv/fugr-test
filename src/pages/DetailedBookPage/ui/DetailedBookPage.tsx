@@ -1,9 +1,9 @@
-import { Book, BookService } from '@/entities/book'
-import { volumeInfo } from '@/entities/book/model/types/Book'
-import { BookDetails } from '@/entities/book/ui/BookDetails'
-import { Loader } from '@/shared/ui/loader'
 import { FC, useEffect, useState } from 'react'
 import { useParams } from 'react-router'
+import { BookService } from '../../../entities/book'
+import { volumeInfo } from '../../../entities/book/model/types/Book'
+import { BookDetails } from '../../../entities/book/ui/BookDetails'
+import { Loader } from '../../../shared/ui/loader'
 // import cls from './DetailedBookPage.module.scss'
 
 interface DetailedBookPageProps {}

@@ -1,9 +1,9 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 import { initialBookState } from './bookSlice.config'
-import { AppState } from 'app/providers/redux'
 import { reciveAllBooks } from '../thunk/BookThunk'
 import { CategoryType, SortType } from './bookSlice.types'
 import { SearchParams } from '../../api/types'
+import { AppState } from '../../../../app/providers/redux'
 
 /*
 	Main logic of book slice

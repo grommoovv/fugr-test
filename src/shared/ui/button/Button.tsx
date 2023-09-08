@@ -1,6 +1,6 @@
 import { ButtonHTMLAttributes, FC, ReactNode } from 'react'
 import cls from './Button.module.scss'
-import { ModsType, cn } from '@/shared/libs/classNames/classNames'
+import { cn } from '../../libs/classNames'
 
 type ButtonTheme = 'primary' | 'default'
 

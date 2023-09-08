@@ -1,10 +1,8 @@
 import { FC, FormEvent } from 'react'
 import cls from './SearchForm.module.scss'
-import { Input } from '@/shared/ui/input/Input'
-import { Select } from '@/shared/ui/select'
-import { SearchByQuery } from '@/features/SearchByQuery'
-import { FilterByCategories } from '@/features/FilterByCategories'
-import { SortByOrder } from '@/features/SortByOrder'
+import { FilterByCategories } from '../../../features/FilterByCategories'
+import { SearchByQuery } from '../../../features/SearchByQuery'
+import { SortByOrder } from '../../../features/SortByOrder'
 
 interface SearchFormProps {}
 

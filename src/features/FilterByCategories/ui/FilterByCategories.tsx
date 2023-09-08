@@ -1,9 +1,9 @@
 import { FC, useState } from 'react'
 import cls from './FilterByCategories.module.scss'
-import { Select } from '@/shared/ui/select'
-import { setSelectedCategory } from '@/entities/book/model/slice/bookSlice'
-import { CategoryType } from '@/entities/book/model/slice/bookSlice.types'
-import { useAppDispatch } from '@/app/providers/redux'
+import { useAppDispatch } from '../../../app/providers/redux'
+import { setSelectedCategory } from '../../../entities/book/model/slice/bookSlice'
+import { CategoryType } from '../../../entities/book/model/slice/bookSlice.types'
+import { Select } from '../../../shared/ui/select'
 
 interface FilterByCategoriesProps {}
 
