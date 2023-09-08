@@ -2,8 +2,8 @@
 // import { __API_KEY__ } from '@/shared/api/keys'
 import { ApiResponse, SearchParams } from '../types'
 import { Book } from '../../model/types/Book'
-import { __API_KEY__ } from '@/shared/api/keys'
-import { $axios } from '@/shared/api/axios'
+import { __API_KEY__ } from 'shared/api/keys'
+import { $axios } from 'shared/api/axios'
 
 export const maxBookResultPerLoad = 30
 

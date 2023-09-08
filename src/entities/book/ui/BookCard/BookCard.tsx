@@ -2,8 +2,6 @@ import { FC } from 'react'
 import cls from './BookCard.module.scss'
 import { volumeInfo } from '../../model/types/Book'
 import { Link } from 'react-router-dom'
-import { useAppSelector } from '@/app/providers/redux'
-import { selectState } from '../../model/slice/bookSlice'
 
 interface BookCardProps {
   book: volumeInfo
