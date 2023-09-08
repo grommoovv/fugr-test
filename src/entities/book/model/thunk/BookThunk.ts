@@ -5,7 +5,7 @@ import { ApiResponse, SearchParams } from '../../api/types'
 let errorMessage = 'Failed to load data'
 
 export const reciveAllBooks = createAsyncThunk<ApiResponse, SearchParams, { rejectValue: string }>(
-  '@books/reciveAllBooks',
+  'BOOKS/reciveAllBooks',
   async function (searchParams, { rejectWithValue }) {
     try {
       return await BookService.reciveAllBooks(searchParams)
