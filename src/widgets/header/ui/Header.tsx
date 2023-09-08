@@ -3,9 +3,7 @@ import { useLocation } from 'react-router'
 import cls from './Header.module.scss'
 import { SearchForm } from '../../SearchForm'
 
-interface HeaderProps {}
-
-export const Header: FC = (props) => {
+export const Header: FC = () => {
   const location = useLocation()
 
   if (location.pathname === '/') {
