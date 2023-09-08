@@ -5,9 +5,7 @@ import cls from './RootLayout.module.scss'
 import { Header } from '../../../widgets/Header'
 import { Loader } from '../../ui/loader'
 
-interface RootLayoutProps {}
-
-export const RootLayout: FC = (props) => {
+export const RootLayout: FC = () => {
   return (
     <>
       <div className={cls.RootLayout}>

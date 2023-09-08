@@ -4,7 +4,6 @@ import cls from './SearchByQuery.module.scss'
 import { useAppSelector, useAppDispatch } from '../../../app/providers/redux'
 import { SearchParams } from '../../../entities/book/api/types'
 import {
-  selectState,
   resetRecivedData,
   setSearchQuery,
   setPrevSearchParams,
@@ -17,7 +16,7 @@ interface SearchByQueryProps {}
 
 export const SearchByQuery: FC = () => {
   const [inputValue, setInputValue] = useState('')
-  const { searchQuery, selectedSort, selectedCategory } = useAppSelector(selectState)
+  const { searchQuery, selectedSort, selectedCategory } = useAppSelector((s) => s.BOOKS)
   const dispatch = useAppDispatch()
 
   console.log('input', inputValue)

@@ -5,9 +5,9 @@ import { App } from './app/App'
 import './app/styles/styles.scss'
 
 createRoot(document.getElementById('root') as HTMLElement).render(
-  // <React.StrictMode>
-  <ReduxProvider>
-    <App />
-  </ReduxProvider>
-  // </React.StrictMode>
+  <React.StrictMode>
+    <ReduxProvider>
+      <App />
+    </ReduxProvider>
+  </React.StrictMode>
 )

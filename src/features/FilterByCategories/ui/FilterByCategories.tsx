@@ -8,13 +8,9 @@ import { Select } from '../../../shared/ui/select'
 interface FilterByCategoriesProps {}
 
 export const FilterByCategories: FC = (props) => {
-  const [filterValue, setFilterValue] = useState('all')
   const dispatch = useAppDispatch()
 
-  // console.log('filter value:', filterValue)
-
   const handleFilter = (value: CategoryType) => {
-    setFilterValue(value)
     dispatch(setSelectedCategory(value))
   }
 

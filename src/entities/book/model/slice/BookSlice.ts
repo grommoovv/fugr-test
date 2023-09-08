@@ -61,16 +61,6 @@ export const BookSlice = createSlice({
   },
 })
 
-/*
-	Selectors
-*/
-
-export const selectState = (state: AppState) => state.BOOKS
-export const selectAllBooks = (state: AppState) => state.BOOKS.books
-export const selectSearchQuery = (state: AppState) => state.BOOKS.searchQuery
-export const selectSelectedCategory = (state: AppState) => state.BOOKS.selectedCategory
-export const selectSortBy = (state: AppState) => state.BOOKS.selectedSort
-
 export const {
   setSearchQuery,
   setSelectedCategory,
