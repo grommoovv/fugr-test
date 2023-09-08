@@ -1,31 +1,37 @@
 import { FC } from 'react'
 import cls from './BookCard.module.scss'
 import { volumeInfo } from '../../model/types/Book'
+import { Link } from 'react-router-dom'
+import { useAppSelector } from '@/app/providers/redux'
+import { selectState } from '../../model/slice/bookSlice'
 
 interface BookCardProps {
-  details: volumeInfo
+  book: volumeInfo
+  bookId: string
 }
 
-export const BookCard: FC<BookCardProps> = ({ details }) => {
-  const imageURL = details?.imageLinks?.thumbnail
-  const title = details?.title
-  const publishedDate = details?.publishedDate
-  const formattedCategories = details?.categories?.join(', ')
-  const formattedAuthors = details?.authors?.join(', ')
+export const BookCard: FC<BookCardProps> = ({ book, bookId }) => {
+  const title = book?.title
+  const publishedDate = book?.publishedDate
+  const imageURL = book?.imageLinks?.thumbnail
+  const formattedAuthors = book?.authors?.join(', ')
+  const formattedCategories = book?.categories?.join(', ')
 
   return (
     <>
-      <div className={cls.card}>
-        <div className={cls.media}>
-          <img src={imageURL} alt={title} />
+      <Link to={`/books/${bookId}`}>
+        <div className={cls.card}>
+          <div className={cls.media}>
+            <img src={imageURL} alt={title} />
+          </div>
+          <div className={cls.info}>
+            <div className={cls.categories}>{formattedCategories}</div>
+            <div className={cls.title}>{title}</div>
+            <div className={cls.authors}>{formattedAuthors}</div>
+            <div className={cls.published}>Published: {publishedDate}</div>
+          </div>
         </div>
-        <div className={cls.info}>
-          <div className={cls.categories}>{formattedCategories}</div>
-          <div className={cls.title}>{title}</div>
-          <div className={cls.authors}>{formattedAuthors}</div>
-          <div className={cls.published}>Published: {publishedDate}</div>
-        </div>
-      </div>
+      </Link>
     </>
   )
 }
