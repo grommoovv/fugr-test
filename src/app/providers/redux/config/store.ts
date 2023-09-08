@@ -1,6 +1,7 @@
-import { BookSlice } from '@/entities/book/model/slice/bookSlice'
+// import { BookSlice } from '@/entities/book/model/slice/bookSlice'
 import { configureStore } from '@reduxjs/toolkit'
 import { combineReducers } from '@reduxjs/toolkit'
+import { BookSlice } from 'entities/book'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 
 const rootReducer = combineReducers({
