@@ -1,11 +1,11 @@
 import { FC } from 'react'
 import cls from './LoadMore.module.scss'
-import { useAppSelector, useAppDispatch } from '../../../app/providers/redux'
-import { reciveAllBooks } from '../../../entities/book'
-import { maxBookResultPerLoad } from '../../../entities/book/api/service/BookService'
-import { SearchParams } from '../../../entities/book/api/types'
-import { setPrevSearchParams } from '../../../entities/book/model/slice/bookSlice'
+import { setPrevSearchParams } from '../../../providers/redux/slice/bookSlice'
 import { Button } from '../../../shared/ui/button'
+import { useAppDispatch, useAppSelector } from '../../../providers/redux'
+import { SearchParams } from '../../../types'
+import { maxBookResultPerLoad } from '../../../shared/helpers'
+import { reciveAllBooks } from '../../../providers/redux/thunk/bookThunk'
 
 export const LoadMore: FC = () => {
   const {
