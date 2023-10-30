@@ -1,16 +1,16 @@
 import { FC, useState } from 'react'
 
 import cls from './SearchByQuery.module.scss'
-import { useAppSelector, useAppDispatch } from '../../../app/providers/redux'
-import { SearchParams } from '../../../entities/book/api/types'
 import {
   resetRecivedData,
   setSearchQuery,
   setPrevSearchParams,
-} from '../../../entities/book/model/slice/bookSlice'
+} from '../../../providers/redux/slice/bookSlice'
 import { Button } from '../../../shared/ui/button'
 import { Input } from '../../../shared/ui/input/Input'
-import { reciveAllBooks } from '../../../entities/book'
+import { useAppDispatch, useAppSelector } from '../../../providers/redux'
+import { SearchParams } from '../../../types'
+import { reciveAllBooks } from '../../../providers/redux/thunk/bookThunk'
 
 interface SearchByQueryProps {}
 
