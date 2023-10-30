@@ -1,9 +1,9 @@
 import { FC, useState } from 'react'
 import cls from './SortByOrder.module.scss'
-import { useAppDispatch } from '../../../app/providers/redux'
-import { setSelectedSort } from '../../../entities/book/model/slice/bookSlice'
-import { SortType } from '../../../entities/book/model/slice/bookSlice.types'
+import { setSelectedSort } from '../../../providers/redux/slice/bookSlice'
 import { Select } from '../../../shared/ui/select'
+import { SortType } from '../../../types'
+import { useAppDispatch } from '../../../providers/redux'
 
 interface SortByOrderProps {}
 
