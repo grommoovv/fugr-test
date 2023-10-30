@@ -1,8 +1,8 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
-import { ReduxProvider } from './app/providers/redux'
-import { App } from './app/App'
-import './app/styles/styles.scss'
+import { App } from './App'
+import './shared/styles/styles.scss'
+import { ReduxProvider } from './providers/redux'
 
 createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
