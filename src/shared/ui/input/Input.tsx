@@ -1,6 +1,6 @@
 import { FC, InputHTMLAttributes } from 'react'
 import cls from './Input.module.scss'
-import { cn } from '../../libs/classNames'
+import { cn } from '../../libs'
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   className?: string
